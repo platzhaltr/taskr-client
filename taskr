@@ -1,0 +1,3 @@
+#!/bin/sh
+JAR=dist/taskr.jar
+java -jar $JAR $1 

@@ -1,0 +1,5 @@
+bin
+dist
+*.log
+build
+settings.properties

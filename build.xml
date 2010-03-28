@@ -1,0 +1,45 @@
+<project name="p2p-sync" default="dist" basedir=".">
+
+	<property name="src" location="src" />
+	<property name="lib" location="lib" />
+	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+	<property name="res" location="res" />
+
+	<property name="log4j" value="log4j.properties" />
+	<property name="settings" value="settings.properties" />
+
+	<target name="init">
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<javac destdir="${build}">
+			<src path="${src}" />
+			<include name="**" />
+			<include name="**/.properties" />
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="**.*jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<copy file="${lib}/${log4j}" tofile="${dist}/${log4j}" />
+		<copy file="${settings}" tofile="${dist}/${settings}" />
+
+		<copy todir="${dist}/lib">
+			<fileset dir="${lib}" />
+		</copy>
+
+		<mkdir dir="${dist}" />
+		<jar jarfile="${dist}/taskr.jar" basedir="${build}" manifest="${res}/manifest.mf" />
+	</target>
+
+	<target name="clean" description="clean up">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>

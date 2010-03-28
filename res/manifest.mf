@@ -1,0 +1,2 @@
+Main-Class: com.platzhaltr.taskr.core.Client
+Class-Path: . lib/jewelcli-0.6.jar lib/log4j-1.2.15.jar lib/commons-logging-1.1.1.jar lib/httpclient-4.0.1.jar lib/httpcore-4.0.1.jar
