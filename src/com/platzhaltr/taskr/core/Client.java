@@ -31,7 +31,6 @@ public class Client {
 	 * @param baseURI
 	 */
 	public Client(URI baseURI) {
-		System.out.println(baseURI);
 		this.requestBuilder = new RequestBuilder(baseURI);
 	}
 

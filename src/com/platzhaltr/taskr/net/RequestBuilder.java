@@ -19,7 +19,7 @@ import org.apache.http.protocol.HTTP;
  */
 public class RequestBuilder {
 
-	private static final String POST_TASK_PATH = "/index.php";
+	private static final String POST_TASK_PATH = "/task";
 	private static final String POST_TASK_CONTENT_PARAM = "content";
 
 	private URI baseURI;

@@ -51,10 +51,14 @@ public class SettingsBuilder {
 			throws IllegalArgumentException {
 		URI uri;
 		try {
-			uri = new URI(HTTP, properties.getProperty("domain"), null, null);
+			String host = properties.getProperty("taskr.host");
+			int port = Integer.parseInt(properties.getProperty("taskr.port"));
+			uri = new URI(HTTP, null, host, port, null, null, null);
 			return new Settings(uri);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("Couldn't create settings.", e);
 		} catch (URISyntaxException e) {
-			throw new IllegalArgumentException("Couldn't read settings.", e);
+			throw new IllegalArgumentException("Couldn't create settings.", e);
 		}
 	}
 
